@@ -50,6 +50,7 @@ async function startBot(){
     for(let m of messages){
       try{
         if(!m.message) continue
+        if(m.key.fromMe) continue
        // ===== ANTI VIEWONCE V2 - ULTIMATE FIX =====
     try{
       let msg = m.message
@@ -94,7 +95,8 @@ async function startBot(){
     // ===== AUTO GREETING KIKUYU + SHENG + PROPER - BOT CHOOSES RANDOM =====
     if(settings.autoGreeting){
       try{
-               let body = ""
+               let body = let greetings = ["sasa","poa","mambo","niaje","hello","hi","hey"]
+if(!greetings.some(g => body.includes(g))) continue
         if(m.message.conversation) body = m.message.conversation
         else if(m.message.extendedTextMessage) body = m.message.extendedTextMessage.text
         else if(m.message.imageMessage) body = m.message.imageMessage.caption || ""
