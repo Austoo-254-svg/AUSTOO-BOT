@@ -95,7 +95,8 @@ async function startBot(){
     // ===== AUTO GREETING KIKUYU + SHENG + PROPER - BOT CHOOSES RANDOM =====
     if(settings.autoGreeting){
       try{
-               let body = let greetings = ["sasa","poa","mambo","niaje","hello","hi","hey"]
+         let body = (m.message.conversation || m.message.extendedTextMessage?.text || "").toLowerCase()
+let greetings = ["sasa","poa","mambo","niaje","hello","hi","hey"]      
 if(!greetings.some(g => body.includes(g))) continue
         if(m.message.conversation) body = m.message.conversation
         else if(m.message.extendedTextMessage) body = m.message.extendedTextMessage.text
